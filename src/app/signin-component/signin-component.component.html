@@ -1,12 +1,13 @@
  <div class="container">
   <h2>Signin form</h2>
-   <form name="signup" [(ngModel)]="signup">
+   <form name="signin" [(ngModel)]="signin">
    		<div class="form-group">
-   			<input class="form-control" [(ngModel)]="signup.email" type="email"/>
+   			<input class="form-control" [(ngModel)]="signin.email" type="email"
+   			 name="email"/>
    		</div>
    		<div class="form-group">
-   			<input class="form-control" [(ngModel)]="signup.password"/>
+   			<input class="form-control" [(ngModel)]="signin.password" name="password"/>
    		</div>
-   		<button type="submit" class="btn btn-default">Signup</button>
+   		<button type="submit" class="btn btn-default" name="submit">Signup</button>
    </form>
  </div>

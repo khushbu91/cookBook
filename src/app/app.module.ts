@@ -6,18 +6,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { SignupComponentComponent } from './signup-component/signup-component.component';
 import { SigninComponentComponent } from './signin-component/signin-component.component';
+import { SignupServiceService } from './signup-service.service';
 
 
-/*const appRoutes: Routes = [
+const appRoutes: Routes = [
 
       { path: 'signup', component: SignupComponentComponent },
-      { path: '',component: SigninComponentComponent },
+      { path: 'signin',component: SigninComponentComponent },
 
        { path: '',
     redirectTo: '/signin',
     pathMatch: 'full'
   }
-  ];*/
+  ];
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { SigninComponentComponent } from './signin-component/signin-component.co
     SigninComponentComponent
   ],
   imports: [
-    //RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
     HttpModule
@@ -34,7 +35,7 @@ import { SigninComponentComponent } from './signin-component/signin-component.co
   exports: [
     RouterModule
   ],
-  providers: [],
+  providers: [SignupServiceService],
   bootstrap: [AppComponent]
 })
 
