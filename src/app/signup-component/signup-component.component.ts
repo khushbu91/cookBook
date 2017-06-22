@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { SignupServiceService } from './signup-service.service';
 
 
 @Component({
@@ -9,6 +10,11 @@ import { Component} from '@angular/core';
 
 
 export class SignupComponentComponent {
+	constructor(private _signupService: SignupServiceService){}
 	signup = {};
+	ngOnInit(){
+		console.log(this._signupService.say());
+	}
+	
 
 }

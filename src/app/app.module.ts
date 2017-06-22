@@ -6,7 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { SignupComponentComponent } from './signup-component/signup-component.component';
 import { SigninComponentComponent } from './signin-component/signin-component.component';
-import { SignupServiceService } from './signup-service.service';
+import { SignupServiceService } from './signup-component/signup-service.service';
+
 
 
 const appRoutes: Routes = [
