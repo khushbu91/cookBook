@@ -1,22 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { SignupComponentComponent } from './signup-component/signup-component.component';
-import { SigninComponentComponent } from './signin-component/signin-component.component';
-import { SignupServiceService } from './signup-component/signup-service.service';
-
+import { DemoComponent} from './demo/demo.component';
+import { DragulaModule } from 'ng2-dragula';
 
 
 const appRoutes: Routes = [
 
-      { path: 'signup', component: SignupComponentComponent },
-      { path: 'signin',component: SigninComponentComponent },
+  { path: 'task', component: DemoComponent },
 
        { path: '',
-    redirectTo: '/signin',
+    redirectTo: '/task',
     pathMatch: 'full'
   }
   ];
@@ -24,23 +20,22 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponentComponent,
-    SigninComponentComponent
+    DemoComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
-    HttpModule
+    DragulaModule
+
   ],
   exports: [
     RouterModule
   ],
-  providers: [SignupServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 
 
-export class AppModule {
-  
- }
+export class AppModule {}

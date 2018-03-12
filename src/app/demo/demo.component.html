@@ -1,0 +1,54 @@
+<div class="section container">
+  <div class="row" *ngIf="data">
+    <div class="col-xs-4 todo">
+      <div class="heading">To Do</div>
+      <ul class="list-group" [dragula]='"bag-one"' [dragulaModel]='data.todo'>
+        <li class="list-group-item" *ngFor="let item of data.todo; let i =index">{{item}}
+          <span class="pull-right" (click)="removeTask($event,'todo',i)">X</span>
+        </li>
+        <div *ngIf="data.todo.openTaskAdder">
+          <form [formGroup]="todoForm" (ngSubmit)="addTask('todo'); data.todo.openTaskAdder = !data.todo.openTaskAdder">
+            <input name="task" type="text" formControlName="task" [ngModel]="task">
+            <div *ngIf="todoForm.controls['task'].hasError('required') && todoForm.get('task').touched" class="error-msg">Add some task name</div>
+            <button type="submit" class="btn btn-primary" [disabled]="!todoForm.valid">Add</button>
+          </form>
+        </div>
+      </ul>
+      <span (click)=" data.todo.openTaskAdder = !data.todo.openTaskAdder;">
+        Add a card</span>
+    </div>
+    <div class="col-xs-4 progressTask">
+      <div class="heading">Doing</div>
+      <ul class="list-group" [dragula]='"bag-one"' [dragulaModel]='data.progress'>
+        <li class="list-group-item" *ngFor="let item of data.progress; let i =index">{{item}}
+          <span class="pull-right" (click)="removeTask($event,'progress',i)">X</span>
+        </li>
+        <div *ngIf="data.progress.openTaskAdder">
+          <form [formGroup]="progressForm" (ngSubmit)="addTask('progress'); data.progress.openTaskAdder = !data.progress.openTaskAdder">
+            <input name="task" type="text" formControlName="task" [ngModel]="task">
+            <div *ngIf="progressForm.controls['task'].hasError('required') && progressForm.get('task').touched" class="error-msg">Add some task name</div>
+            <button type="submit" class="btn btn-primary" [disabled]="!progressForm.valid">Add</button>
+          </form>
+        </div>
+      </ul>
+      <span (click)=" data.progress.openTaskAdder = !data.progress.openTaskAdder;"> Add a card</span>
+    </div>
+    <div class="col-xs-4 done">
+      <div class="heading">Done</div>
+      <ul class="list-group" [dragula]='"bag-one"' [dragulaModel]='data.done'>
+        <li class="list-group-item" *ngFor="let item of data.done; let i =index">{{item}}
+          <span class="pull-right" (click)="removeTask($event,'done',i)">X</span>
+        </li>
+        <div *ngIf="data.done.openTaskAdder">
+          <form [formGroup]="doneForm" (ngSubmit)="addTask('done'); data.done.openTaskAdder = !data.done.openTaskAdder">
+            <input name="task" type="text" formControlName="task" [ngModel]="task">
+            <div *ngIf="doneForm.controls['task'].hasError('required') && doneForm.get('task').touched" class="error-msg">Add some task name</div>
+            <button type="submit" class="btn btn-primary" [disabled]="!doneForm.valid">Add</button>
+          </form>
+        </div>
+      </ul>
+      <span (click)=" data.done.openTaskAdder = !data.done.openTaskAdder;">
+        Add a card</span>
+    </div>
+  </div>
+</div>

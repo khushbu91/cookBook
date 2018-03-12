@@ -1,0 +1,14 @@
+.app-header {
+    background-color: #ffffff;
+    padding: 23px 9px 23px 9px;
+    height: 64px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+    -ms-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
+    .header-logged-user {
+        color: #01568D;
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
